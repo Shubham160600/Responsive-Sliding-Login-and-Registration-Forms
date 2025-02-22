@@ -1,0 +1,78 @@
+body {
+    font-family: sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    width: 800px;
+    height: 400px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    display: flex;  /* Arrange forms and panel side by side */
+    overflow: hidden; /* Clip content that goes outside the container */
+    position: relative; /* Needed for absolute positioning of the panel */
+}
+
+.register-form, .login-form {
+    width: 400px; /* Each form takes up half the container width */
+    padding: 20px;
+    box-sizing: border-box; /* Ensures padding is included in the width */
+}
+
+.register-form h1, .login-form h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.register-form input, .login-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.register-form button, .login-form button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.register-form button:hover, .login-form button:hover {
+    background-color: #3e8e41;
+}
+
+.sliding-panel {
+    width: 400px; /* Same width as the forms */
+    background: linear-gradient(to bottom, #4CAF50, #3e8e41);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: absolute; /* Absolutely position it within the container */
+    top: 0;
+    right: 0; /* Start on the right, covering the login form */
+    height: 100%; /* Make it the full height of the container */
+    transition: transform 0.5s ease-in-out; /* Smooth sliding animation */
+}
+
+.panel-content {
+    padding: 20px;
+}
+
+/* Active state:  Slide the panel to the left when registering */
+.container.register-active .sliding-panel {
+    transform: translateX(-100%); /* Move the panel to the left */
+}
